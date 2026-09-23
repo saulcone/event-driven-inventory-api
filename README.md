@@ -15,25 +15,6 @@ The application provides:
 * English and Swiss German (`de_CH`) language support
 * Dockerized development environment
 
-## Implemented User Stories
-
-The following user stories have been implemented:
-
-| ID    | Feature            | Description                                                     |
-| ----- | ------------------ | --------------------------------------------------------------- |
-| US 1  | Navigation Sidebar | Persistent navigation for Dashboard and Products                |
-| US 2  | Branding           | Application branding, logo, and visual identity                 |
-| US 3  | Language Switcher  | Switch between English and Swiss German (`de_CH`)               |
-| US 4  | Authentication     | JWT-based sign-in through the backend API                       |
-| US 6  | Total Sold         | Dashboard metric showing the total number of products sold      |
-| US 7  | Available Products | Dashboard metric showing the total number of products           |
-| US 11 | Top 5 Best-Sellers | Dashboard section displaying the five best-selling products     |
-| US 14 | Product Search     | Searchable product catalog                                      |
-| US 15 | Pagination         | Server-side pagination with 10 products per page                |
-| US 16 | Sorting            | Sort products by name or price in ascending or descending order |
-| US 17 | Edit Product       | Edit product details through a modal dialog                     |
-| US 18 | Delete Product     | Delete products with confirmation                               |
-
 ## Features
 
 ### Dashboard
