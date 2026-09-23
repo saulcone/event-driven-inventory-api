@@ -21,6 +21,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { productService } from '../services/productService';
 import type { Product, ProductSummary } from '../services/productService';
+import axios from 'axios';
 
 export const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -38,18 +39,25 @@ export const Dashboard: React.FC = () => {
         const [topProductsData, summaryData] = await Promise.all([
           productService.getMostSold(),
           productService.getSummary(),
+
+          
         ]);
         setTopProducts(topProductsData.items);
         setSummary(summaryData);
-      } catch {
-        setTopProductsError(t.bestSellingError);
+      } catch(error: unknown) {
+
+        if(axios.isAxiosError(error) && error.response?.status === 403) {
+          setTopProductsError(t.accessError);
+        } else {
+          setTopProductsError(t.bestSellingError);
+        }
       } finally {
         setLoadingTopProducts(false);
       }
     };
 
     void loadTopProducts();
-  }, [t.bestSellingError]);
+  }, [t.bestSellingError, t.accessError]);
 
   return (
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>

@@ -29,7 +29,7 @@ def get_products(
     return queryset
 
 
-@router.post("/", response=ProductSchemaOut)
+@router.post("/", response=ProductSchemaOut, auth=staff_or_admin_jwt_auth)
 def create_product(request, payload: ProductSchemaIn):
     product = Product.objects.create(**payload.dict())
     return product
@@ -54,14 +54,14 @@ def delete_product(request, product_id: int):
     return 204, None
 
 
-@router.get("/most-sold", response=list[ProductSchemaOut])
+@router.get("/most-sold", response=list[ProductSchemaOut], auth=staff_or_admin_jwt_auth)
 @paginate(PageNumberPagination, page_size=5)
 def get_most_sold_products(request):
     queryset = Product.objects.order_by("-total_sold")
     return queryset
 
 
-@router.get("/summary", response=ProductSummarySchema)
+@router.get("/summary", response=ProductSummarySchema, auth=staff_or_admin_jwt_auth)
 def get_product_summary(request):
     return Product.objects.aggregate(
         total_products=Count("id"),
@@ -70,7 +70,7 @@ def get_product_summary(request):
     )
 
 
-@router.get("/{int:product_id}", response=ProductSchemaOut)
+@router.get("/{int:product_id}", response=ProductSchemaOut, auth=staff_or_admin_jwt_auth)
 def get_product(request, product_id: int):
     product = get_object_or_404(Product, id=product_id)
     return product

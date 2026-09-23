@@ -51,6 +51,7 @@ interface TranslationKeys {
   bestSellingProducts: string;
   topFiveSales: string;
   bestSellingError: string;
+  accessError: string;
   readyToManageCatalog: string;
   catalogDescription: string;
   goTo: string;
@@ -111,6 +112,7 @@ const translations: Record<Language, TranslationKeys> = {
     bestSellingProducts: 'Best-selling products',
     topFiveSales: 'Top 5 products by total sales',
     bestSellingError: 'Unable to load best-selling products. Please try again.',
+    accessError: 'Unable to access the system. Please try again.',
     readyToManageCatalog: 'Ready to manage your catalog?',
     catalogDescription: 'Filter products, monitor low-stock items, edit records, or delete obsolete entries.',
     goTo: 'Go to',
@@ -169,6 +171,7 @@ const translations: Record<Language, TranslationKeys> = {
     bestSellingProducts: 'Meistverkaufte Produkte',
     topFiveSales: 'Top 5 Produkte nach Gesamtverkäufen',
     bestSellingError: 'Meistverkaufte Produkte konnten nicht geladen werden. Bitte versuchen Sie es erneut.',
+    accessError: 'Zugriff auf das System nicht möglich. Bitte versuchen Sie es erneut.',
     readyToManageCatalog: 'Bereit, Ihren Katalog zu verwalten?',
     catalogDescription: 'Produkte filtern, Artikel mit geringem Bestand überwachen, Einträge bearbeiten oder veraltete Einträge löschen.',
     goTo: 'Zu',
